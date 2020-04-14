@@ -5,33 +5,27 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body onload="testOnLoad()">
+<!-- <body onload="testOnLoad()"> -->
     <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
-    <input type="text" onchange="testOnChange()" oninput="testOnInput()" />
-    <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">Test test test</h3>
+    <input type="text" onchange="output('onchange','lightblue', 40)" oninput="output('oninput','pink', 30)" />
+    <h3 onmouseover="output('onmouseover','lightgreen', 60)" onmouseout="output('onmouseout','orange', 150)">Test test test</h3>
     <h2 id="info"></h2>
-
     <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
-    <script>
-        function testOnLoad() {
-            document.getElementById('info').innerHTML += '<li>onload</li>';
-        }
+    <div id="synlig">dskjglkdsjgsjlkjlkj</div>
+    <script> 
+        var infoDiv = document.getElementById('info');
+        var synlig = document.getElementById('synlig');
+        
+        function output(text, color, size){
+            textColor = 'style="color:' +  color + '; font-size: ' + size + 'px' + '";';
+            infoDiv.innerHTML = '<div ' + textColor + '>' + text + '</div>';
+            
+            synlig.innerText = '<div ' + textColor + '>' + text + '</div>';
 
-        function testOnChange() {
-            document.getElementById('info').innerHTML += '<li>onchange</li>';
         }
-
-        function testOnInput() {
-            document.getElementById('info').innerHTML += '<li>oninput</li>';
-        }
-
-        function testOnMouseOver() {
-            document.getElementById('info').innerHTML += '<li>onmouseover</li>';
-        }
-
-        function testOnMouseOut() {
-            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
-        }
+        
+        
+       
     </script>
 </body>
 </html>
